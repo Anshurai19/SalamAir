@@ -1,0 +1,40 @@
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+
+public class Login 
+{
+	 WebDriver driver;
+
+	    // Constructor that receives WebDriver from DriverFactory
+	    public  Login(WebDriver driver)
+	    {
+	        this.driver = driver;
+	    }
+
+	    @SuppressWarnings("deprecation")
+		public  void LogInnSignup() throws InterruptedException
+	    {
+		
+	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	    HomePage HomePage = new HomePage(driver);
+		HomePage.Home();
+		driver.findElement(By.className("btn-login")).click();
+		Set<String> windows=driver.getWindowHandles();
+		Iterator<String>it = windows.iterator();
+		String parentid = it.next();
+		String childid = it.next();
+		driver.switchTo().window(childid);
+		driver.findElement(By.cssSelector("input[placeholder='Email *'")).sendKeys("anshurai191999@gmail.com");
+		driver.findElement(By.cssSelector("input[placeholder='Password *'")).sendKeys("Anshurai@19");
+		driver.findElement(By.cssSelector("button[type='submit'")).click();
+			
+		
+
+	}
+
+}
