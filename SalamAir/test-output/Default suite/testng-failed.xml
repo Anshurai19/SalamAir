@@ -5,7 +5,8 @@
     <classes>
       <class name="Run">
         <methods>
-          <include name="TestCase3"/>
+          <include name="TestCase1"/>
+          <include name="TestCase4"/>
         </methods>
       </class> <!-- Run -->
     </classes>
